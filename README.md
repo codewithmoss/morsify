@@ -72,7 +72,7 @@ Morsify offers a set of commands to interact with the tool. You can either use t
 
 ### Start the tool:
 
-Simply run: (## Recommended)
+Simply run: ## Recommended
 
 ```bash
 morsify
