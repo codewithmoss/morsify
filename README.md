@@ -199,11 +199,12 @@ curl -s https://raw.githubusercontent.com/codewithmoss/morsify/main/install.sh |
 
 # 📜 **How it works now:**
 
-Step | What Happens
-1 | Downloads the file to /tmp/ (user always has access).
-2 | Uses sudo to move it safely to /usr/local/bin/.
-3 | Makes it executable with chmod +x.
-4 | Shows success message, ready to use morsify.
+| Step | What Happens                                               |
+|-----|-------------------------------------------------------------|
+| 1    | Downloads the file to `/tmp/` (user always has access).    |
+| 2    | Uses `sudo` to move it safely to `/usr/local/bin/`.         |
+| 3    | Makes it executable with `chmod +x`.                       |
+| 4    | Shows success message, ready to use `morsify`.             |
 
 ---
 
