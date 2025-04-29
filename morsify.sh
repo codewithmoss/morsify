@@ -2,7 +2,7 @@
 
 # ==========================
 # Morse Code Converter Tool
-# Author: RAI SULEMAN
+# Author: RAI SULEMAN (Inspired from 3 Body Problem)
 # ==========================
 
 
@@ -33,7 +33,7 @@ fi
 echo "Starting Morsify..."
 
 
-# Define Morse Code Dictionary
+# Define Morse Code Dictionary (standardized with . and - only)
 declare -A MORSE_CODE_DICT=(
     ["0"]="-----" ["1"]=".----" ["2"]="..---" ["3"]="...--" ["4"]="....-"
     ["5"]="....." ["6"]="-...." ["7"]="--..." ["8"]="---.." ["9"]="----."
@@ -42,10 +42,13 @@ declare -A MORSE_CODE_DICT=(
     ["k"]="-.-" ["l"]=".-.." ["m"]="--" ["n"]="-." ["o"]="---"
     ["p"]=".--." ["q"]="--.-" ["r"]=".-." ["s"]="..." ["t"]="-"
     ["u"]="..-" ["v"]="...-" ["w"]=".--" ["x"]="-..-" ["y"]="-.--" ["z"]="--.."
-    ["."]=".-.-.-" [","]="--..--" ["?"]="..--.." ["!"]="-.-.--"
-    ["-"]="-....-" ["/"]="-..-." ["@"]=".--.-." ["("]="-.--." [")"]="-.--.-"
+    ["&"]=".-..." ["@"]=".--.-." ["+"]=".-.-." ["$"]="...-..-"
+    ["."]=".-.-.-" [":"]="---..." [","]="--..--" [";"]="-.-.-." ["?"]="..--.."
+    ["="]="-...-" ["'"]=".----." ["/"]="-..-." ["!"]="-.-.--" ["-"]="-....-"
+    ["_"]="..--.-" ["\\"]=".-..-." ["("]="-.--." [")"]="-.--.-"
     [" "]="/" # Space separator
 )
+
 
 # Create Reverse Dictionary for decoding
 declare -A REVERSE_MORSE_DICT
@@ -86,12 +89,13 @@ encode_to_morse() {
         if [[ -n "$code" ]]; then
             output+="$code "
         else
-            output+="? "
+            output+="❌"
         fi
     done
 
     echo "$output"
 }
+
 
 # Function to decode Morse to text
 decode_from_morse() {
@@ -103,12 +107,13 @@ decode_from_morse() {
         if [[ -n "$char" ]]; then
             output+="$char"
         else
-            output+="?"
+            output+="❌"
         fi
     done
 
     echo "$output"
 }
+
 
 # Function to get input (manual or file)
 get_input_text() {
@@ -118,9 +123,9 @@ get_input_text() {
     read -rp "Choice: " input_choice
 
     if [[ "$input_choice" == "1" ]]; then
-        read -rp "Enter your text or Morse code: " input_text
+        read -ep "Enter your text or Morse code: " input_text
     elif [[ "$input_choice" == "2" ]]; then
-        read -rp "Enter file path: " file_path
+        read -ep "Enter file path: " file_path
         if [[ -f "$file_path" ]]; then
             input_text=$(<"$file_path")
         else
@@ -135,12 +140,13 @@ get_input_text() {
 
 # Function to check if input is Morse code
 is_morse_code() {
-    if [[ "$1" =~ ^[.\-/\ \n]+$ ]]; then
-        return 0
+    if [[ "$1" == *"."* && "$1" == *"-"* ]]; then
+        return 0  # Valid: contains both dot and dash
     else
-        return 1
+        return 1  # Invalid: does not contain Morse code-like symbols
     fi
 }
+
 
 # Function to smartly handle output file saving
 smart_save_output() {
@@ -156,7 +162,7 @@ smart_save_output() {
         echo -e "${GREEN}Result:${NC}"
         echo "$output"
     elif [[ "$output_choice" == "2" ]]; then
-        read -rp "Enter output path (with or without filename): " out_path
+        read -ep "Enter output path (with or without filename): " out_path
 
         if [[ "$out_path" == */ ]]; then
             # Path ends with slash, only directory given

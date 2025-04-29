@@ -13,8 +13,39 @@
   </p>
 </p>
 
----
+## 📸 Screenshots
 
+<p align="center">
+  <img src="img/1.png" alt="Encode text into Morse Code" width="600"/>
+  <br><em>Encode text into Morse Code</em>
+</p>
+
+<p align="center">
+  <img src="img/2.png" alt="Encode text into Morse Code (save the file in .txt)" width="600"/>
+  <br><em>Encode text into Morse Code (save the file in .txt)</em>
+</p>
+
+<p align="center">
+  <img src="img/3.png" alt="Encoded File .txt" width="600"/>
+  <br><em>Encoded File .txt</em>
+</p>
+
+<p align="center">
+  <img src="img/4.png" alt="Decode Morse Code into text" width="600"/>
+  <br><em>Decode Morse Code into text</em>
+</p>
+
+<p align="center">
+  <img src="img/5.png" alt="Decode Morse Code into text (save the file in .txt)" width="600"/>
+  <br><em>Decode Morse Code into text (save the file in .txt)</em>
+</p>
+
+<p align="center">
+  <img src="img/6.png" alt="Decoded File .txt" width="600"/>
+  <br><em>Decoded File .txt</em>
+</p>
+
+---
 
 # 🛰️ Morsify
 
