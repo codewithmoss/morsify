@@ -3,7 +3,7 @@
 set -e
 
 echo "📥 Step 1: Downloading morsify.sh to temporary location..."
-curl -Lo /tmp/morsify.sh https://raw.githubusercontent.com/YOUR_USERNAME/morsify/main/morsify.sh
+curl -Lo /tmp/morsify.sh https://raw.githubusercontent.com/codewithmoss/morsify/main/morsify.sh
 
 echo "🔒 Step 2: Moving morsify.sh to /usr/local/bin/ (requires sudo)..."
 sudo mv /tmp/morsify.sh /usr/local/bin/morsify
